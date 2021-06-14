@@ -9,8 +9,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
 @Table(name="products")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
 	@Id
@@ -36,71 +43,5 @@ public class Product {
 	@ManyToOne()
 	@JoinColumn(name="category_id")
 	private Category category;
-	
-	public Product() {
-		super();
-	}
 
-
-	public Product(int id, String productName, double unitPrice, short unitsInStock,
-			String quantityPerUnit) {
-		super();
-		this.id = id;
-		//this.categoryId = categoryId;
-		this.productName = productName;
-		this.unitPrice = unitPrice;
-		this.unitsInStock = unitsInStock;
-		this.quantityPerUnit = quantityPerUnit;
-	}
-
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getProductName() {
-		return productName;
-	}
-
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
-
-	public double getUnitPrice() {
-		return unitPrice;
-	}
-
-
-	public void setUnitPrice(double unitPrice) {
-		this.unitPrice = unitPrice;
-	}
-
-
-	public short getUnitsInStock() {
-		return unitsInStock;
-	}
-
-
-	public void setUnitsInStock(short unitsInStock) {
-		this.unitsInStock = unitsInStock;
-	}
-
-
-	public String getQuantityPerUnit() {
-		return quantityPerUnit;
-	}
-
-
-	public void setQuantityPerUnit(String quantityPerUnit) {
-		this.quantityPerUnit = quantityPerUnit;
-	}
-	
 }
